@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const app = express()
 app.use(express.json())
+app.use(express.static('build'))
 
 morgan.token('custom', function (req, res) { return JSON.stringify(req.body) })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms, :custom'))
@@ -30,6 +31,11 @@ let persons = [
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": 4
+    },
+    {
+        "name": "Joni",
+        "number": "044-56269994",
+        "id": 5
     }
 ]
 
