@@ -12,7 +12,6 @@
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
     "logs:prod": "heroku logs --tail"
   },
-  "proxy": "http://localhost:3001",
   "author": "",
   "license": "ISC",
   "dependencies": {
