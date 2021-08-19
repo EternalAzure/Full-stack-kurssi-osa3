@@ -14,10 +14,13 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms, :
 app.use(cors())
 
 
-app.get('/api/persons', (res) => {
-  Person.find({}).then(persons => {
-    res.json(persons)
-  })
+app.get('/api/persons', (req, res, next) => {
+  Person
+    .find({})
+    .then(persons => {
+      res.json(persons)
+    })
+    .catch((error) => next(error))
 })
 
 app.get('/api/persons/:id', (req, res, next) => {
